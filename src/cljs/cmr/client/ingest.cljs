@@ -25,6 +25,7 @@
     get-providers
     create-collection
     update-collection
+    delete-collection
     create-variable
     update-variable])
 
@@ -55,6 +56,9 @@
   (update-collection
     [this]
     (ingest/save-collection this provider-id native-id data))
+  (delete-collection
+    [this]
+    (ingest/delete-collection this provider-id native-id))
   (create-variable
     [this]
     (ingest/save-variable this provider-id native-id data))
