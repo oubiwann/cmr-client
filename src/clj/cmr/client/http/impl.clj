@@ -83,7 +83,8 @@
     :get http/get
     :head http/head
     :put http/put
-    :post http/post))
+    :post http/post
+    :delete http/delete))
 
 (defn- call
   [client method args options]
@@ -161,7 +162,11 @@
   ([this url]
     (delete this url {}))
   ([this url options]
-    :not-implemented))
+    (call this
+          :delete
+          (->> options
+               (create-http-client-args this url))
+          options)))
 
 (defn- copy
   ([this url]

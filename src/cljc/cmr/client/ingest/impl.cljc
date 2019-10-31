@@ -42,6 +42,20 @@
                   (http-util/merge-header options
                                           (base/get-token-header this))))))
 
+(defn delete-collection
+  "Delete a collection."
+  ([this provider-id native-id]
+   (delete-collection this provider-id native-id {}))
+  ([this provider-id native-id options]
+   (-> this
+       :http-client
+       (http/delete (base/get-url this
+                                  (format "/providers/%s/collections/%s"
+                                          provider-id
+                                          native-id))
+                    (http-util/merge-header options
+                                            (base/get-token-header this))))))
+
 (defn save-variable
   "Save a variable."
   ([this provider-id native-id metadata]
@@ -65,5 +79,6 @@
   {:get-providers get-providers
    :create-collection save-collection
    :update-collection save-collection
+   :delete-collection delete-collection
    :create-variable save-variable
    :update-variable save-variable}))

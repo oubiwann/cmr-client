@@ -24,6 +24,7 @@
     get-providers
     create-collection
     update-collection
+    delete-collection
     create-variable
     update-variable])
 

@@ -13,6 +13,9 @@
   (^:export update-collection [this provider-id native-id metadata]
                               [this provider-id native-id metadata options]
     "Update a collection.")
+  (^:export delete-collection [this provider-id native-id]
+                              [this provider-id native-id options]
+    "Delete a collection.")
   (^:export create-variable [this provider-id native-id metadata]
                             [this provider-id native-id metadata options]
     "Create a variable.")
